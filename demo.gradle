@@ -1,0 +1,25 @@
+class Greeting extends DefaultTask {
+    String message
+    String recipient
+
+    @TaskAction
+    void sayGreeting() {
+        println "${message}, ${recipient}!"
+    }
+}
+
+//if a task does not have a group it will not be listed unless --all is specified when running `gradle tasks`
+task hello {
+    group 'Welcome Wagon'
+    description 'My dummy task'
+    doLast {
+        println 'Howdy'
+    }
+}
+
+task helloV2(type: Greeting) {
+    group 'Welcome Wagon'
+    description 'Prints the configured message'
+    message 'Hello'
+    recipient 'World'
+}

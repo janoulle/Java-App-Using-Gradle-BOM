@@ -19,6 +19,8 @@ plugins {
     id 'org.springframework.boot' version '2.0.3.RELEASE'
 }
 
+apply from: 'demo.gradle'
+
 // Define the main class for the application
 mainClassName = 'App'
 
